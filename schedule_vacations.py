@@ -106,6 +106,8 @@ if __name__ == "__main__":
     print(dates)
     print()
 
-    export_path = pathlib.Path(date_time.strftime('%Y-%m-%d, %H_%M_%S')).with_suffix('.xlsx')
+    current_directory = pathlib.Path(staff_file_name).absolute().parent
+    file_name = pathlib.Path(date_time.strftime('%Y-%m-%d, %H_%M_%S')).with_suffix('.xlsx')
+    export_path = current_directory / file_name
     dates.to_excel(export_path)
     print('Сохранено в файл: {}'.format(export_path.absolute()))
